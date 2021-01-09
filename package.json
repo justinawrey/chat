@@ -8,9 +8,6 @@
     "clean": "rm -rf public/build"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.10",
-    "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@rollup/plugin-replace": "^2.3.4",
@@ -29,6 +26,5 @@
   },
   "dependencies": {
     "pusher-js": "^7.0.2"
-  },
-  "browserslist": "> 0.25%, not dead"
+  }
 }
