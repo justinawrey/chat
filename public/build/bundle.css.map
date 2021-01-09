@@ -1,1 +1,0 @@
-{"version":3,"sources":["global.css"],"names":[],"mappings":"AAAA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,SAAS;EACT,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB","file":"bundle.css","sourcesContent":["html {\n  height: 100%;\n}\n\nbody {\n  height: 100%;\n  margin: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}"]}
