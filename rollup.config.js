@@ -63,10 +63,10 @@ export default {
       dedupe: ['svelte']
     }),
     commonjs(),
-    !production && serve(),
-    !production && replace({
+    replace({
       'process.env.PUSHER_APP_KEY': JSON.stringify(process.env.PUSHER_APP_KEY),
     }),
+    !production && serve(),
     !production && livereload('public'),
     production && terser(),
     production && sizeSnapshot(),
