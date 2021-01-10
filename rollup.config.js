@@ -65,6 +65,7 @@ export default {
     commonjs(),
     replace({
       'process.env.PUSHER_APP_KEY': JSON.stringify(process.env.PUSHER_APP_KEY),
+      'process.env.PUSHER_APP_CLUSTER': JSON.stringify(process.env.PUSHER_APP_CLUSTER),
     }),
     !production && serve(),
     !production && livereload('public'),

@@ -1,7 +1,7 @@
 import Pusher from 'pusher-js';
 
 const pusher = new Pusher(process.env.PUSHER_APP_KEY, {
-  cluster: 'us3',
+  cluster: process.env.PUSHER_APP_CLUSTER,
 });
 
 const channel = pusher.subscribe('my-channel');
