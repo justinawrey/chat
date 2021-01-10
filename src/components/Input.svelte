@@ -3,12 +3,12 @@
 
   let message;
   function sendMessage(e) {
-    if (e.key !== "Enter") {
+    if (e.key !== "Enter" || !message) {
       return;
     }
 
+    api.sendMessage(message);
     message = "";
-    api.sendMessage();
   }
 </script>
 

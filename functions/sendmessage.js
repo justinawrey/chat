@@ -7,9 +7,9 @@ const pusher = new Pusher({
   cluster: process.env.PUSHER_APP_CLUSTER,
 });
 
-exports.handler = async function () {
+exports.handler = async function (event) {
   pusher.trigger("my-channel", "my-event", {
-    message: "A dope message."
+    message: event.body,
   });
 
   return {
