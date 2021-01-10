@@ -8,9 +8,11 @@ const pusher = new Pusher({
 });
 
 exports.handler = async function (event) {
+  const { message, socketId } = JSON.parse(event.body);
+
   pusher.trigger("my-channel", "my-event", {
-    message: event.body,
-  });
+    message,
+  }, socketId);
 
   return {
     statusCode: 200,

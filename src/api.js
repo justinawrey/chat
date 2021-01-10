@@ -1,10 +1,12 @@
+import { socketId } from './globals';
+
 async function post(url, data) {
   const res = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: data,
+    body: JSON.stringify(data),
   });
   const json = await res.json();
 
@@ -15,8 +17,11 @@ async function post(url, data) {
   }
 }
 
-async function sendMessage(data) {
-  return post('.netlify/functions/sendmessage', data);
+async function sendMessage(message) {
+  return post('.netlify/functions/sendmessage', {
+    message,
+    socketId,
+  });
 }
 
 export default {
