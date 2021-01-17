@@ -1,11 +1,12 @@
 <script>
-  import { afterUpdate } from "svelte";
+  import { afterUpdate, beforeUpdate } from "svelte";
 
   import { channel } from "../pusher.js";
   import Input from "./Input.svelte";
 
   let scrollArea;
   let messages = [];
+  let atBottom;
   let lastReadId;
 
   function addMessage(message) {
@@ -16,8 +17,16 @@
     scrollArea.scrollTop = scrollArea.scrollHeight;
   }
 
+  beforeUpdate(() => {
+    if (!scrollArea) return;
+    atBottom =
+      Math.abs(
+        scrollArea.scrollHeight - scrollArea.offsetHeight - scrollArea.scrollTop
+      ) <= 5;
+  });
+
   afterUpdate(() => {
-    jumpToBottom();
+    if (atBottom) jumpToBottom();
   });
 
   channel.bind("my-event", addMessage);
@@ -27,7 +36,8 @@
   <ul bind:this={scrollArea}>
     {#each messages as { text, sender, id } (id)}
       <li>
-        {`${sender}: ${text} ${lastReadId === id ? "<-- LAST READ" : ""}`}
+        <b>{sender}: </b>
+        {text}
       </li>
     {/each}
   </ul>

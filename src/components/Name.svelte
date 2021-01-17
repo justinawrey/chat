@@ -11,7 +11,7 @@
 </script>
 
 <div id="name-input">
-  <p>Name: {$name}</p>
+  <p><b>Name: </b>{$name}</p>
   <input
     type="text"
     placeholder="Choose name"
