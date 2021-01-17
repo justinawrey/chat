@@ -1,4 +1,5 @@
 const Pusher = require('pusher');
+const uuidv4 = require('uuid');
 
 const pusher = new Pusher({
   appId: process.env.PUSHER_APP_ID,
@@ -8,11 +9,12 @@ const pusher = new Pusher({
 });
 
 exports.handler = async function (event) {
-  const { message, socketId } = JSON.parse(event.body);
+  const { message, socketId, uuid = uuidv4.v4() } = JSON.parse(event.body);
 
   try {
     const pusherRes = await pusher.trigger("my-channel", "my-event", {
       message,
+      uuid,
     }, socketId);
 
     if (pusherRes.status !== 200) {

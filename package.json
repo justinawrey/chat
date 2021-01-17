@@ -4,7 +4,7 @@
   "scripts": {
     "build": "npm run clean && rollup -c",
     "dev:js": "rollup -c -w",
-    "dev:server": "netlify dev",
+    "dev:server": "npm run build && netlify dev",
     "start": "sirv public",
     "clean": "rm -rf public/build"
   },
@@ -27,6 +27,7 @@
     "pusher": "^4.0.2"
   },
   "dependencies": {
-    "pusher-js": "^7.0.2"
+    "pusher-js": "^7.0.2",
+    "uuid": "^8.3.2"
   }
 }
