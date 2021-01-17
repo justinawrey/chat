@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "build": "npm run clean && rollup -c",
-    "dev": "rollup -c -w",
+    "dev:js": "rollup -c -w",
+    "dev:server": "netlify dev",
     "start": "sirv public",
     "clean": "rm -rf public/build"
   },

@@ -1,7 +1,5 @@
 <script>
-  import ChatLog from "./ChatLog.svelte";
-  import Input from "./Input.svelte";
+  import ChatBox from "./ChatBox.svelte";
 </script>
 
-<ChatLog />
-<Input />
+<ChatBox />

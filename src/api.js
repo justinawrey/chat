@@ -1,4 +1,4 @@
-import { socketId } from './globals';
+import { socketId } from './pusher.js';
 
 async function post(url, data) {
   const res = await fetch(url, {

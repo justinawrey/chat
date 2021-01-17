@@ -1,5 +1,8 @@
 <script>
-  import api from "../api";
+  import { createEventDispatcher } from "svelte";
+  import api from "../api.js";
+
+  const dispatch = createEventDispatcher();
 
   let message;
   function sendMessage(e) {
@@ -7,6 +10,7 @@
       return;
     }
 
+    dispatch("new-message", message);
     api.sendMessage(message);
     message = "";
   }
