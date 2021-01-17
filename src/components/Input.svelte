@@ -1,6 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import { v4 } from "uuid";
+  import name from "../stores/name.js";
   import api from "../api.js";
 
   const dispatch = createEventDispatcher();
@@ -14,8 +15,9 @@
     // generate uuid for own messages on client and send up
     // to server to fan out, so every participant has same ids
     let id = v4();
-    dispatch("new-message", { text, id });
-    api.sendMessage(text, id);
+    let sender = $name;
+    dispatch("new-message", { text, sender, id });
+    api.sendMessage(text, sender, id);
 
     text = "";
   }

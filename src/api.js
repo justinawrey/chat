@@ -17,9 +17,10 @@ async function post(url, data) {
   }
 }
 
-async function sendMessage(text, id) {
+async function sendMessage(text, sender, id) {
   return post('.netlify/functions/sendmessage', {
     text,
+    sender,
     id,
     socketId,
   });

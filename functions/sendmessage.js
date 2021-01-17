@@ -8,11 +8,12 @@ const pusher = new Pusher({
 });
 
 exports.handler = async function (event) {
-  const { text, socketId, id } = JSON.parse(event.body);
+  const { text, sender, socketId, id } = JSON.parse(event.body);
 
   try {
     const pusherRes = await pusher.trigger("my-channel", "my-event", {
       text,
+      sender,
       id,
     }, socketId);
 
