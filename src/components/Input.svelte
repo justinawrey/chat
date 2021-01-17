@@ -16,4 +16,8 @@
   }
 </script>
 
-<input type="text" bind:value={message} on:keypress={sendMessage} />
+<input
+  type="text"
+  placeholder="Aa"
+  bind:value={message}
+  on:keypress={sendMessage} />
