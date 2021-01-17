@@ -14,11 +14,11 @@
     // generate uuid for own messages on client and send up
     // to server to fan out, so own message ids are recognized
     // globally
-    let message = { text, uuid: v4() };
-    dispatch("new-message", message);
-    api.sendMessage(message);
+    let id = v4();
+    dispatch("new-message", { text, id });
+    api.sendMessage(text, id);
 
-    message = "";
+    text = "";
   }
 </script>
 

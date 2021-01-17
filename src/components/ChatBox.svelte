@@ -7,6 +7,7 @@
   $: messageTexts = messages.map(({ text }) => text);
 
   function addMessage(message) {
+    console.log(message);
     messages = [...messages, message];
   }
 
