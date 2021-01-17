@@ -12,8 +12,7 @@
     }
 
     // generate uuid for own messages on client and send up
-    // to server to fan out, so own message ids are recognized
-    // globally
+    // to server to fan out, so every participant has same ids
     let id = v4();
     dispatch("new-message", { text, id });
     api.sendMessage(text, id);
